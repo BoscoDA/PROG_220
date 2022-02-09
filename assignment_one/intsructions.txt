@@ -1,0 +1,12 @@
+The Fibonacci Problem:
+The fibonacci sequence is a sequence of numbers starting at zero that increases by adding the previous two numbers in the sequence together. It is an infinite set
+Your job is to calculate the nth number in the fibonacci sequence. For example, if you input 2 you should get 1 and if you input 6 you should get 8 and so on and so forth
+
+in the accompanying c file you have a fibonnaci function. that currrently takes in an integer and returns 0; implement this function so the test cases pass
+
+The test cases are defined in the main method. 
+
+Assignment:
+- implement fibonnaci method to calculate the nth number in the sequence
+- write 2 of your own test cases like the already defined ones
+
