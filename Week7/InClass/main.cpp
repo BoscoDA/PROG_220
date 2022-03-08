@@ -43,8 +43,15 @@ int main(){
         std::cout << *it << std::endl;
     }
 
+    for(auto it = s.begin(); it != s.end(); it++){
+
+    }
+
+    for(auto i : s){ // basically a for each loop
+        std::cout << i << std::endl;
+    }
+
     std::map<int, int> m = {{1,1}, {1,2}};
     m.insert(std::pair<int, int>(1,1));
     m[1];
-
 }
