@@ -25,16 +25,18 @@ void Game()
     while (GameBoard.GetShipCount() > 0)
     {
         Fire();
+        GameBoard.displayBoard();
     }
+    // TEST();
 }
 
 // Iterates through the shadow board diagonally for the next spot that is suspected to have a ship
 void Guess()
 {
-    int x = 0, y = 0;
-    int index = 0;
+    int x = 0, y = 0, index = 0;
     int row = BOARD_X, col = BOARD_Y;
-    while (index < 64)
+
+    while (index < (BOARD_X * BOARD_Y))
     {
         if (ShadowBoard.GetGameBoard()[y][x] != 'X')
         {
@@ -78,6 +80,7 @@ void Guess()
                 }
             }
         }
+        index++;
     }
 }
 
@@ -90,10 +93,9 @@ void Fire()
     }
     int x = guesses.begin()->first;
     int y = guesses.begin()->second;
-    std::cout << x << y;
+    std::cout << "\nGuess:(" << x + 1 << "," << y + 1 << ") is a ";
     GetAdj(x, y);
     std::cout << EvaluatePoint(x, y) << std::endl;
-    GameBoard.displayBoard();
     guesses.erase(guesses.begin());
     adj.clear();
 }
@@ -126,7 +128,7 @@ int EvalAdj()
 {
     for (auto it = adj.begin(); it != adj.end(); it++)
     {
-        if (GameBoard.GetGameBoard()[it->second][it->first] == 's')
+        if ((GameBoard.GetGameBoard()[it->second][it->first] == 's') & (ShadowBoard.GetGameBoard()[it->second][it->first] != 'X'))
         {
             return 1;
         }

@@ -81,4 +81,5 @@ void Board::displayBoard()
         std::cout << std::endl;
     }
     std::cout << "Ships Remaining: " << shipCount << std::endl;
+    std::cout << "\n\n\n";
 }
