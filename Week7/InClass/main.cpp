@@ -7,11 +7,12 @@
 #include <list>
 #include <set>
 #include <map>
-#include <stack> // first in first out, no iterating
+#include <stack> // last in first out, no iterating
 #include <queue> // first in last out, not iterating
 
-int main(){
-    //int arry[10] = {1,2,3,4};
+int main()
+{
+    // int arry[10] = {1,2,3,4};
 
     /* std::vector(int) vect = {1,2,3,4,5}; //universal initializer
 
@@ -27,7 +28,7 @@ int main(){
         //vect.erase(it, vect.end());
     }
 
-    int i = vect.at(1); 
+    int i = vect.at(1);
 
     std::vector<int> vect;
     vect.reserve(100); // will reserve 100 elements
@@ -35,23 +36,26 @@ int main(){
 
     /* std::list<int> l = {1,2,3}; // typically used for linked lists
     l.push_back(10);
-    l.pop_back(); */
+    l.pop_back();
 
-    std::set<int> s = {1,2,4,3,3};
+    std::set<int> s = {1, 2, 4, 3, 3};
 
-    for (std::set<int>::iterator it = s.begin(); it != s.end(); it++){
+    for (std::set<int>::iterator it = s.begin(); it != s.end(); it++)
+    {
         std::cout << *it << std::endl;
     }
 
-    for(auto it = s.begin(); it != s.end(); it++){
-
+    for (auto it = s.begin(); it != s.end(); it++)
+    {
     }
 
-    for(auto i : s){ // basically a for each loop
+    for (auto i : s)
+    { // basically a for each loop
         std::cout << i << std::endl;
-    }
+    }*/
 
-    std::map<int, int> m = {{1,1}, {1,2}};
-    m.insert(std::pair<int, int>(1,1));
+    std::map<int, int> m = {{1, 1}, {1, 2}};
+    m.insert(std::pair<int, int>(1, 1));
     m[1];
+    std::cout << m[1];
 }
