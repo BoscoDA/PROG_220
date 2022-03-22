@@ -21,6 +21,7 @@ Board::Board(int x_length, int y_length)
 
 Board::~Board()
 {
+    delete[] GameBoard;
 }
 
 // Creates board filled with empty water spaces then runs PlaceShips()
@@ -50,8 +51,7 @@ char **Board::PlaceShips()
     int shipsCreated = 0;
     while (shipsCreated < maxShips)
     {
-        int row = (rand() % x);
-        int col = (rand() % y);
+        int row = (rand() % x), col = (rand() % y);
 
         if (GameBoard[row][col] != Ship)
         {

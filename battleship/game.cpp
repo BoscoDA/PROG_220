@@ -27,7 +27,6 @@ void Game()
         Fire();
         GameBoard.displayBoard();
     }
-    // TEST();
 }
 
 // Iterates through the shadow board diagonally for the next spot that is suspected to have a ship
