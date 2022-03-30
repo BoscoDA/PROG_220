@@ -3,7 +3,7 @@
 class Board
 {
 public:
-    Board(int x_length, int y_length);
+    Board();
     ~Board();
     int GetLengthX() { return x; }
     int GetLengthY() { return y; }

@@ -39,6 +39,7 @@ You must use these return statuses in your algorithm.
 
 int main()
 {
-  Setup();
-  Game();
+  Game game;
+  game.Setup();
+  game.Start();
 }

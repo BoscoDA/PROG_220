@@ -11,10 +11,10 @@ const char Ship = 's';
     - sets up empty game board
     - adds ships randomly to the board
 */
-Board::Board(int x_length, int y_length)
+Board::Board()
 {
-    x = x_length;
-    y = y_length;
+    x = 8;
+    y = 8;
     shipCount = maxShips;
     GameBoard = InitializeBoard();
 }

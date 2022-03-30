@@ -7,20 +7,20 @@
 const int BOARD_X = 8;
 const int BOARD_Y = 8;
 
-Board GameBoard(BOARD_X, BOARD_Y);
-Board ShadowBoard(BOARD_X, BOARD_Y);
+Board GameBoard;
+Board ShadowBoard;
 
 std::vector<std::pair<int, int>> guesses;
 std::vector<std::pair<int, int>> adj;
 
 // Game setup logic held inside
-void Setup()
+void Game::Setup()
 {
     GameBoard.displayBoard();
 }
 
 // Gameloop logic held inside
-void Game()
+void Game::Start()
 {
     while (GameBoard.GetShipCount() > 0)
     {
@@ -30,7 +30,7 @@ void Game()
 }
 
 // Iterates through the shadow board diagonally for the next spot that is suspected to have a ship
-void Guess()
+void Game::Guess()
 {
     int x = 0, y = 0, index = 0;
     int row = BOARD_X, col = BOARD_Y;
@@ -84,7 +84,7 @@ void Guess()
 }
 
 // Logic for firing on a spot
-void Fire()
+void Game::Fire()
 {
     if (guesses.empty() == true)
     {
@@ -100,7 +100,7 @@ void Fire()
 }
 
 // Finds all sqaures sharing a side with the guess that are within the bounds of the board
-void GetAdj(int x, int y)
+void Game::GetAdj(int x, int y)
 {
     if (y - 1 >= 0)
     {
@@ -123,7 +123,7 @@ void GetAdj(int x, int y)
 // Checks adjacent spaces for ships.
 // returns 1 if true
 // returns 0 if false.
-int EvalAdj()
+int Game::EvalAdj()
 {
     for (auto it = adj.begin(); it != adj.end(); it++)
     {
@@ -136,7 +136,7 @@ int EvalAdj()
 }
 
 // Checks if the guess was either a HIT, NEAR MISS, or a MISS
-std::string EvaluatePoint(int x, int y)
+std::string Game::EvaluatePoint(int x, int y)
 {
     if (GameBoard.GetGameBoard()[y][x] == 's')
     {
@@ -153,7 +153,7 @@ std::string EvaluatePoint(int x, int y)
 }
 
 // Logic for when a guess is a HIT
-std::string Hit(int x, int y)
+std::string Game::Hit(int x, int y)
 {
     GameBoard.GetGameBoard()[y][x] = 'X';
     ShadowBoard.GetGameBoard()[y][x] = 'X';
@@ -162,7 +162,7 @@ std::string Hit(int x, int y)
 }
 
 // Logic for when a guess is a NEAR MISS
-std::string NearMiss(int x, int y)
+std::string Game::NearMiss(int x, int y)
 {
     GameBoard.GetGameBoard()[y][x] = 'X';
     ShadowBoard.GetGameBoard()[y][x] = 'X';
@@ -171,7 +171,7 @@ std::string NearMiss(int x, int y)
 }
 
 // Logic for when a guess is a MISS
-std::string Miss(int x, int y)
+std::string Game::Miss(int x, int y)
 {
     GameBoard.GetGameBoard()[y][x] = 'X';
     ShadowBoard.GetGameBoard()[y][x] = 'X';
