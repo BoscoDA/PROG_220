@@ -10,7 +10,8 @@ int Player::GetHandTotal()
     int total = 0;
     for (auto it = Hand.begin(); it != Hand.end(); it++)
     {
-        total += it->GetNumValue();
+        Card *temp = *it;
+        total += temp->GetNumValue();
     }
     return total;
 }
@@ -19,11 +20,11 @@ void Player::DisplayHand()
 {
     for (auto it = Hand.begin(); it != Hand.end(); it++)
     {
-        Card temp = *it;
-        temp.DisplayCard();
+        Card *temp = *it;
+        temp->DisplayCard();
     }
 }
-void Player::SetHand(Card card)
+void Player::SetHand(Card *card)
 {
-    this->Hand.push_back(card);
+    Hand.push_back(card);
 }
